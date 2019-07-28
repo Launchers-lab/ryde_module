@@ -1,20 +1,44 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
+import 'screens/collector/main.dart';
+
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
 Widget _widgetForRoute(String route) {
-  switch (route) {
-    case 'main':
-      return MyApp();
-    case 'route2':
-      return Center(
-        child: Text('Route 2: $route', textDirection: TextDirection.ltr),
-      );
-    default:
-      return Center(
-        child: Text('Unknown route!: $route', textDirection: TextDirection.ltr),
-      );
+  return MaterialApp(
+    initialRoute: route,
+    routes: {
+      '/': (context) => MainDashboard(),
+      '/main': (context) => MyApp(),
+      '/collector': (context) => CollectorStart(),
+    },
+  );
+}
+
+class MainDashboard extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _MainDashboard();
+}
+
+class _MainDashboard extends State<MainDashboard> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text(
+              "Collector Main",
+            ),
+            subtitle: Text("Collector's Page Main"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () => {Navigator.pushNamed(context, '/collector')},
+          ),
+        ],
+      ),
+    ));
   }
 }
 
