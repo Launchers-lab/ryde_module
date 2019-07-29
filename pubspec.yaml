@@ -30,6 +30,7 @@ dependencies:
 
   barcode_scan: ^1.0.0 # https://pub.dev/packages/barcode_scan
   dio: 2.1.13 # https://github.com/flutterchina/dio
+  smooth_star_rating: 1.0.3 # https://pub.dev/packages/smooth_star_rating
 
 dev_dependencies:
   flutter_test:

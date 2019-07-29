@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'screens/collector/main.dart';
 import 'screens/friends/invite_friends.dart';
+import 'screens/review/review.dart';
 import 'utils/themes.dart';
 
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
@@ -15,6 +16,7 @@ Widget _widgetForRoute(String route) {
       '/example': (context) => ExampleScreen(),
       '/collector': (context) => CollectorStart(),
       '/friend': (context) => InviteFriendScreen(),
+      '/review': (context) => ReviewScreen(),
     },
   );
 }
@@ -46,6 +48,14 @@ class _MainDashboard extends State<MainDashboard> {
             subtitle: Text("Friend Invite List view"),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () => {Navigator.pushNamed(context, '/friend')},
+          ),
+          ListTile(
+            title: Text(
+              "Review",
+            ),
+            subtitle: Text("RYDE Review screen *Multiple*"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () => {Navigator.pushNamed(context, '/review')},
           ),
         ],
       ),
