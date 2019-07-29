@@ -1,17 +1,20 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-
 import 'screens/collector/main.dart';
+import 'screens/friends/invite_friends.dart';
+import 'utils/themes.dart';
 
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
 Widget _widgetForRoute(String route) {
   return MaterialApp(
+    theme: themeRYDE,
     initialRoute: route,
     routes: {
       '/': (context) => MainDashboard(),
-      '/main': (context) => MyApp(),
+      '/example': (context) => ExampleScreen(),
       '/collector': (context) => CollectorStart(),
+      '/friend': (context) => InviteFriendScreen(),
     },
   );
 }
@@ -36,13 +39,21 @@ class _MainDashboard extends State<MainDashboard> {
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () => {Navigator.pushNamed(context, '/collector')},
           ),
+          ListTile(
+            title: Text(
+              "Friend List",
+            ),
+            subtitle: Text("Friend Invite List view"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () => {Navigator.pushNamed(context, '/friend')},
+          ),
         ],
       ),
     ));
   }
 }
 
-class MyApp extends StatelessWidget {
+class ExampleScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -57,7 +68,7 @@ class MyApp extends StatelessWidget {
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or press Run > Flutter Hot Reload in a Flutter IDE). Notice that the
         // counter didn't reset back to zero; the application is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.black,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );

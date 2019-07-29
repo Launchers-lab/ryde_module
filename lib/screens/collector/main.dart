@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ryde_module/utils/themes.dart';
 
 import 'auth.dart';
 import 'capture_deploy.dart';
@@ -8,9 +9,7 @@ class CollectorStart extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: themeCollector,
       home: CollectorAuth(
         title: "Auth",
       ),
